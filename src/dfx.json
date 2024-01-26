@@ -1,0 +1,15 @@
+{
+  "canisters": {
+    "stellaris_inscription_random_number": {
+      "type": "rust",
+      "package": "stellaris_inscription_random_number",
+      "candid": "random-num/random_num.did"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "version": 1
+}

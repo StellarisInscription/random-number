@@ -1,0 +1,8 @@
+type Result = variant { Ok : bool; Err : text };
+type Result_1 = variant { Ok : record { nat; nat }; Err : text };
+service : {
+  add_operator : (principal) -> (Result);
+  generate_random : (nat) -> (Result_1);
+  get_owner : () -> (principal) query;
+  get_random_by_seq_no : (nat) -> (opt nat) query;
+}
