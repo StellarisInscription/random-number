@@ -1,12 +1,12 @@
 {
   "canisters": {
     "random_number": {
-      "type": "rust",
+      "type": "custom",
       "package": "stellaris_inscription_random_number",
       "candid": "random-num/random_number.did",
       "wasm": "target/wasm32-unknown-unknown/release/random_number.wasm.gz",
       "build": [
-        "cargo build --target wasm32-unknown-unknown --package stellaris_inscription_random_number --release  --lib --no-default-features",
+        "cargo build --target wasm32-unknown-unknown --package stellaris_inscription_random_number --release  --lib",
         "ic-wasm target/wasm32-unknown-unknown/release/stellaris_inscription_random_number.wasm -o target/wasm32-unknown-unknown/release/random_number.wasm shrink",
         "gzip -f -9 target/wasm32-unknown-unknown/release/random_number.wasm"
       ]

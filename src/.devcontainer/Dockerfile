@@ -3,5 +3,5 @@ COPY config.toml /usr/local/cargo/
 
 RUN rustup self uninstall -y
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN DFX_VERSION=0.15.1 sh -ci "$(curl -fsSL https://raw.githubusercontent.com/dfinity/sdk/dfxvm-install-script/install.sh)"
+RUN rustup target add wasm32-unknown-unknown
 RUN dfx upgrade
