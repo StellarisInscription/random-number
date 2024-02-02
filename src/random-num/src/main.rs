@@ -4,7 +4,8 @@ mod service;
 #[cfg(not(any(target_arch = "wasm32", test)))]
 fn main() {
     use candid::Nat;
-
     candid::export_service!();
-    std::fs::write("random-num/random_num.did", __export_service()).unwrap()
+    std::fs::write("random-num/random_number.did", __export_service()).unwrap()
 }
+
+

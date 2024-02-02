@@ -55,8 +55,12 @@ thread_local! {
 
 #[init]
 fn init(owner: candid::Principal) {
+    // if let Some(owner) = owner {
+    //     let inner = Principal::from_slice(owner.as_slice());
+    //     OWNER.with(|p| p.borrow_mut().set(inner).unwrap());
+    // }
     let inner = Principal::from_slice(owner.as_slice());
-    OWNER.with(|p| p.borrow_mut().set(inner).unwrap());
+        OWNER.with(|p| p.borrow_mut().set(inner).unwrap());
 }
 
 #[query]
@@ -121,4 +125,10 @@ async fn generate_random(seq_no: Nat) -> Result<(Nat, Nat), String> {
 
 fn validate_operator(operator: Principal) -> bool {
     OPERATORS.with(|o| o.borrow().contains_key(&operator))
+}
+
+#[query(name = "__get_candid_interface_tmp_hack")]
+#[candid_method(query, rename = "__get_candid_interface_tmp_hack")]
+pub fn __export_did_tmp_() -> String {
+    include_str!("../random_number.did").to_string()
 }
