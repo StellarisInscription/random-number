@@ -54,13 +54,12 @@ thread_local! {
 }
 
 #[init]
-fn init(owner: candid::Principal) {
-    // if let Some(owner) = owner {
-    //     let inner = Principal::from_slice(owner.as_slice());
-    //     OWNER.with(|p| p.borrow_mut().set(inner).unwrap());
-    // }
-    let inner = Principal::from_slice(owner.as_slice());
+#[candid_method(init)]
+fn init_function(args: Option<InitArgs>) {
+    if let Some(args) = args {
+        let inner = Principal::from_slice(args.owner.as_slice());
         OWNER.with(|p| p.borrow_mut().set(inner).unwrap());
+    }
 }
 
 #[query]
@@ -125,6 +124,12 @@ async fn generate_random(seq_no: Nat) -> Result<(Nat, Nat), String> {
 
 fn validate_operator(operator: Principal) -> bool {
     OPERATORS.with(|o| o.borrow().contains_key(&operator))
+}
+
+
+#[derive(candid::CandidType, candid::Deserialize)]
+pub struct InitArgs {
+    pub owner: candid::Principal,
 }
 
 #[query(name = "__get_candid_interface_tmp_hack")]
