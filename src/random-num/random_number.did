@@ -1,6 +1,8 @@
+type InitArgs = record { owner : principal };
 type Result = variant { Ok : bool; Err : text };
 type Result_1 = variant { Ok : record { nat; nat }; Err : text };
-service : {
+service : (opt InitArgs) -> {
+  __get_candid_interface_tmp_hack : () -> (text) query;
   add_operator : (principal) -> (Result);
   generate_random : (nat) -> (Result_1);
   get_owner : () -> (principal) query;
