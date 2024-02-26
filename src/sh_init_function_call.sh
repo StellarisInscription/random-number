@@ -1,1 +1,1 @@
-dfx deploy --argument '(opt record { owner = principal "yhyxg-izacd-xurb2-is55r-xwn23-k5zls-zjb6d-jspck-ybwnw-pqjkt-nae" })' random_number
+dfx deploy --argument '(opt record { owner = principal "7jftb-haxax-tdu45-5i6o5-6ihpl-iazv7-z5lnp-4xlmq-7hpmv-z6vgv-2qe" })' random_number

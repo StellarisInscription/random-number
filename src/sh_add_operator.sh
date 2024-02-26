@@ -1,0 +1,1 @@
+dfx canister call random_number add_operator 'principal "7jftb-haxax-tdu45-5i6o5-6ihpl-iazv7-z5lnp-4xlmq-7hpmv-z6vgv-2qe"'
